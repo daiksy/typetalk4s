@@ -8,30 +8,29 @@ object typetalk4sBuild extends Build {
   val appName = "typetalk4s"
   val appOrganization = "com.github.daiksy"
   val appVersion  = "0.1.0-SNAPSHOT"
-  val appScalaVersion = "2.10.3"
+  val appScalaVersion = "2.11.2"
 
   val main = Project(
     appName,
     base = file("."),
-    settings = Defaults.defaultSettings ++ Seq(
+    settings = Defaults.defaultConfigs ++ Seq(
       organization := appOrganization,
       version := appVersion,
       scalaVersion := appScalaVersion,
       libraryDependencies ++= Seq(
-        "net.databinder" %% "dispatch-http" % "0.8.10",
-        "net.databinder" %% "dispatch-http-json" % "0.8.10"
+        "net.databinder.dispatch" %% "dispatch-core" % "0.11.2"
       ) ++ testDependencies,
       resolvers ++= Seq(
         "Typesafe Repository" at "http://repo.typesafe.com/typesafe/releases/"
       )
-    ) ++  formatSettings ++ coverallsSetting
+    ) ++  formatSettings
   ).settings(SbtScalariform.scalariformSettings: _*).settings(appPublishSettings: _*)
 
   lazy val testDependencies = Seq(
-	  "junit" % "junit" % "4.7" % "test",
-	  "org.scalaz" %% "scalaz-core" % "7.0.0" % "test",
-	  "org.specs2" %% "specs2" % "1.13" % "test",
-    "org.mockito" % "mockito-all" % "1.9.5" % "test"
+	"junit" % "junit" % "4.7" % "test",
+	"org.scalaz" %% "scalaz-core" % "7.1.0" % "test",
+	"org.specs2" %% "specs2" % "2.4.2" % "test",
+	"org.mockito" % "mockito-all" % "1.9.5" % "test"
   )
 
   lazy val formatSettings = Seq(
@@ -39,10 +38,6 @@ object typetalk4sBuild extends Build {
     .setPreference(IndentWithTabs, true)
     .setPreference(DoubleIndentClassDeclaration, true)
     .setPreference(PreserveDanglingCloseParenthesis, true)
-  )
-
-  lazy val coverallsSetting = Seq(
-    CoverallsPlugin.singleProject: _*
   )
 
   lazy val appPublishSettings = Seq(
