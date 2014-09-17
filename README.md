@@ -3,7 +3,7 @@ typetalk4s
 
 This is a "Typetalk Web API" client library for Scala.
 
-supported scala version is ```2.11.x```
+supported scala version is ```2.11.x``` ```2.10.x``` 
 
 # License
 
