@@ -17,6 +17,7 @@ object typetalk4sBuild extends Build {
       organization := appOrganization,
       version := appVersion,
       scalaVersion := appScalaVersion,
+      crossScalaVersions := Seq(appScalaVersion, "2.10.4"),
       libraryDependencies ++= Seq(
         "net.databinder.dispatch" %% "dispatch-core" % "0.11.2"
       ) ++ testDependencies,
