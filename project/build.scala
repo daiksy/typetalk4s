@@ -19,7 +19,8 @@ object typetalk4sBuild extends Build {
       scalaVersion := appScalaVersion,
       crossScalaVersions := Seq(appScalaVersion, "2.10.4"),
       libraryDependencies ++= Seq(
-        "net.databinder.dispatch" %% "dispatch-core" % "0.11.2"
+        "net.databinder.dispatch" %% "dispatch-core" % "0.11.2",
+        "com.typesafe" % "config" % "1.2.1"
       ) ++ testDependencies,
       resolvers ++= Seq(
         "Typesafe Repository" at "http://repo.typesafe.com/typesafe/releases/"
