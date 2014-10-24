@@ -1,0 +1,8 @@
+# please rename this file to application.conf and fill below
+typetalk {
+  credentials {
+    clientId: "" # input your client id
+    clientSecret: "" # input your client secret
+  }, 
+  topicIds: [] # input your topic ids
+}
