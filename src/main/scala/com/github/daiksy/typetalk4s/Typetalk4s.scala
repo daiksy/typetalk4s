@@ -7,14 +7,14 @@ import skinny.util.JSONStringOps._
 import com.github.daiksy.typetalk4s.exception.AuthenticationException
 
 class Typetalk4s {
-  lazy val config = ConfigFactory.load()
+  private lazy val config = ConfigFactory.load()
 
-  lazy val clientId = config.getString("typetalk.credentials.clientId")
-  lazy val clientSecret = config.getString("typetalk.credentials.clientSecret")
+  protected lazy val clientId = config.getString("typetalk.credentials.clientId")
+  protected lazy val clientSecret = config.getString("typetalk.credentials.clientSecret")
 
   case class AccessToken(accessToken: String, expiresIn: Long, scope: String, refreshToken: String, tokenType: String)
 
-  def getAccessToken(): AccessToken = {
+  protected def accessToken: AccessToken = {
     val text = HTTP.post("https://typetalk.in/oauth2/access_token",
       "client_id" -> clientId,
       "client_secret" -> clientSecret,
@@ -24,7 +24,10 @@ class Typetalk4s {
     fromJSONString[AccessToken](text).getOrElse(throw new AuthenticationException)
   }
 
-  def post(token: AccessToken, topicId: Long, message: String): Unit = {
+  def topicIds: List[Long] = config.getLongList("typetalk.topicIds").asScala.map(Long2long).toList
+
+  def post(topicId: Long, message: String): Unit = {
+    val token = accessToken
     val request = Request(s"https://typetalk.in/api/v1/topics/${topicId}")
       .formParams("message" -> message)
       .header("Authorization", s"Bearer ${token.accessToken}")
