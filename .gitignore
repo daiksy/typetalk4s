@@ -23,3 +23,5 @@ server.pid
 *.iml
 *.eml
 target/
+
+application.conf

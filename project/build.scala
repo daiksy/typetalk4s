@@ -19,13 +19,25 @@ object typetalk4sBuild extends Build {
       scalaVersion := appScalaVersion,
       crossScalaVersions := Seq(appScalaVersion, "2.10.4"),
       libraryDependencies ++= Seq(
-        "net.databinder.dispatch" %% "dispatch-core" % "0.11.2"
+        "org.skinny-framework" %% "skinny-http-client" % "1.3.4",
+        "org.skinny-framework" %% "skinny-json" % "1.3.4",
+        "com.typesafe" % "config" % "1.2.1"
       ) ++ testDependencies,
       resolvers ++= Seq(
         "Typesafe Repository" at "http://repo.typesafe.com/typesafe/releases/"
       )
     ) ++  formatSettings
   ).settings(SbtScalariform.scalariformSettings: _*).settings(appPublishSettings: _*)
+
+  val sample = Project(
+    appName + "-sample",
+    base = file("./sample"),
+    settings = Defaults.defaultConfigs ++ Seq(
+      organization := appOrganization,
+      version := appVersion,
+      scalaVersion := appScalaVersion
+    )
+  ).dependsOn(main).aggregate(main)
 
   lazy val testDependencies = Seq(
 	"junit" % "junit" % "4.7" % "test",
