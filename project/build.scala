@@ -40,10 +40,10 @@ object typetalk4sBuild extends Build {
   ).dependsOn(main).aggregate(main)
 
   lazy val testDependencies = Seq(
-	"junit" % "junit" % "4.7" % "test",
-	"org.scalaz" %% "scalaz-core" % "7.1.0" % "test",
-	"org.specs2" %% "specs2" % "2.4.2" % "test",
-	"org.mockito" % "mockito-all" % "1.9.5" % "test"
+    "junit" % "junit" % "4.7" % "test",
+    "org.scalaz" %% "scalaz-core" % "7.1.0" % "test",
+    "org.specs2" %% "specs2" % "2.4.2" % "test",
+    "org.mockito" % "mockito-all" % "1.9.5" % "test"
   )
 
   lazy val formatSettings = Seq(

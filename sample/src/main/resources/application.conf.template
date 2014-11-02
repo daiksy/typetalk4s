@@ -3,6 +3,7 @@ typetalk {
   credentials {
     clientId: "" # input your client id
     clientSecret: "" # input your client secret
-  }, 
+  },
+  scopes: ["topic.write"],
   topicIds: [] # input your topic ids
 }
