@@ -8,7 +8,8 @@ object typetalk4sBuild extends Build {
   val appName = "typetalk4s"
   val appOrganization = "com.github.daiksy"
   val appVersion  = "0.1.0-SNAPSHOT"
-  val appScalaVersion = "2.11.2"
+  val appScalaVersion = "2.11.4"
+  val skinnyVersion = "1.3.5"
 
   val main = Project(
     appName,
@@ -19,9 +20,9 @@ object typetalk4sBuild extends Build {
       scalaVersion := appScalaVersion,
       crossScalaVersions := Seq(appScalaVersion, "2.10.4"),
       libraryDependencies ++= Seq(
-        "org.skinny-framework" %% "skinny-http-client" % "1.3.4",
-        "org.skinny-framework" %% "skinny-json" % "1.3.4",
-        "com.typesafe" % "config" % "1.2.1"
+        "org.skinny-framework" %% "skinny-http-client" % skinnyVersion,
+        "org.skinny-framework" %% "skinny-json"        % skinnyVersion,
+        "com.typesafe"         %  "config"             % "1.2.1"
       ) ++ testDependencies,
       resolvers ++= Seq(
         "Typesafe Repository" at "http://repo.typesafe.com/typesafe/releases/"
@@ -40,10 +41,10 @@ object typetalk4sBuild extends Build {
   ).dependsOn(main).aggregate(main)
 
   lazy val testDependencies = Seq(
-    "junit" % "junit" % "4.7" % "test",
-    "org.scalaz" %% "scalaz-core" % "7.1.0" % "test",
-    "org.specs2" %% "specs2" % "2.4.2" % "test",
-    "org.mockito" % "mockito-all" % "1.9.5" % "test"
+    "junit"       %  "junit"       % "4.11"    % "test",
+    "org.scalaz"  %% "scalaz-core" % "7.1.0"   % "test",
+    "org.specs2"  %% "specs2-core" % "2.4.11"  % "test",
+    "org.mockito" %  "mockito-all" % "1.10.12" % "test"
   )
 
   lazy val formatSettings = Seq(
