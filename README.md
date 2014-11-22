@@ -2,6 +2,8 @@ typetalk4s
 =============
 [![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/daiksy/typetalk4s?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
+[![Build Status](https://travis-ci.org/daiksy/typetalk4s.png?branch=master)](https://travis-ci.org/daiksy/typetalk4s)
+
 This is a "Typetalk Web API" client library for Scala.
 
 supported scala version is ```2.11.x``` ```2.10.x``` 
