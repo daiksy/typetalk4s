@@ -8,8 +8,8 @@ object typetalk4sBuild extends Build {
   val appName = "typetalk4s"
   val appOrganization = "com.github.daiksy"
   val appVersion  = "0.1.0-SNAPSHOT"
-  val appScalaVersion = "2.11.4"
-  val skinnyVersion = "1.3.5"
+  val appScalaVersion = "2.11.5"
+  val skinnyVersion = "1.3.13"
 
   val main = Project(
     appName,
@@ -41,10 +41,10 @@ object typetalk4sBuild extends Build {
   ).dependsOn(main).aggregate(main)
 
   lazy val testDependencies = Seq(
-    "junit"       %  "junit"       % "4.11"    % "test",
-    "org.scalaz"  %% "scalaz-core" % "7.1.0"   % "test",
-    "org.specs2"  %% "specs2-core" % "2.4.11"  % "test",
-    "org.mockito" %  "mockito-all" % "1.10.12" % "test"
+    "junit"       %  "junit"       % "4.12"    % "test",
+    "org.scalaz"  %% "scalaz-core" % "7.1.1"   % "test",
+    "org.specs2"  %% "specs2-core" % "2.4.16"  % "test",
+    "org.mockito" %  "mockito-all" % "1.10.19" % "test"
   )
 
   lazy val formatSettings = Seq(
