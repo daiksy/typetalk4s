@@ -1,9 +1,9 @@
 language: scala
 scala:
    - 2.10.4
-   - 2.11.4
+   - 2.11.5
 script:
-    - sbt test
+    - travis_retry sbt test
 notifications:
   emails:
     - ksydisk780921@gmail.com
